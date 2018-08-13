@@ -41,6 +41,7 @@ class LDAPConn(object):
         app.config.setdefault('LDAP_VALID_NAMES', None)
         app.config.setdefault('LDAP_PRIVATE_KEY_PASSWORD', None)
         app.config.setdefault('LDAP_RAISE_EXCEPTIONS', False)
+        app.config.setdefault('LDAP_COLLECT_USAGE', False)
 
         app.config.setdefault('LDAP_CONNECTION_STRATEGY', SYNC)
 
@@ -95,6 +96,7 @@ class LDAPConn(object):
             auto_bind=auto_bind_strategy,
             client_strategy=current_app.config['LDAP_CONNECTION_STRATEGY'],
             raise_exceptions=current_app.config['LDAP_RAISE_EXCEPTIONS'],
+            collect_usage=current_app.config['LDAP_COLLECT_USAGE'],
             user=user,
             password=password,
             check_names=True,
